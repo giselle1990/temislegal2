@@ -3,16 +3,18 @@ interface Props {
 	detail?: boolean;
 }
 
+import { withBase } from '../utils/paths';
+
 const { detail = false } = Astro.props;
 ---
 
 <header class:list={['site-header', { 'detail-header': detail }]} data-header>
-	<a class="brand" href="/#inicio" aria-label="Inicio de Temis Legal">
+	<a class="brand" href={withBase('#inicio')} aria-label="Inicio de Temis Legal">
 		<span>Temis</span>Legal<span>.</span>
 	</a>
 
 	{detail ? (
-		<a class="back-link" href="/#areas">← Volver a áreas</a>
+		<a class="back-link" href={withBase('#areas')}>← Volver a áreas</a>
 	) : (
 		<>
 			<button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" data-menu-toggle>

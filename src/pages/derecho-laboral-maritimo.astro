@@ -2,13 +2,14 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
+import { withBase } from '../utils/paths';
 ---
 
 <Layout title="Derecho Laboral Marítimo | Temis Legal" description="Asesoramiento especializado para trabajadores marítimos, portuarios y pesqueros.">
 	<Header detail />
 	<main>
 		<section class="detail-hero">
-			<img src="/images/derecho-laboral-maritimo.jpg" alt="" />
+			<img src={withBase('images/derecho-laboral-maritimo.jpg')} alt="" />
 			<div class="detail-overlay"></div>
 			<div class="detail-hero-content">
 				<span class="eyebrow">Área de práctica</span>

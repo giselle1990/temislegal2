@@ -3,6 +3,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import HeroCarousel from '../components/HeroCarousel.astro';
 import Layout from '../layouts/Layout.astro';
+import { withBase } from '../utils/paths';
 
 const services = [
 	{ icon: '▣', title: 'Consultas jurídicas online', text: 'Orientación profesional para evaluar tu situación y definir los próximos pasos.' },
@@ -22,6 +23,7 @@ const areas = [
 	{ icon: '◉', title: 'Derecho del Consumidor', text: 'Reclamos por productos, servicios, garantías y trato indigno.' },
 	{ icon: '▱', title: 'Sucesiones', text: 'Planificación y acompañamiento integral del proceso sucesorio.' },
 ];
+
 ---
 
 <Layout title="Temis Legal | Consultora Jurídica" description="Asesoramiento, gestión y representación legal en todo el país.">
@@ -81,7 +83,7 @@ const areas = [
 							<div class="area-face area-back">
 								<h3>{area.title}</h3>
 								<p>{area.text}</p>
-								<a href={area.featured ? '/derecho-laboral-maritimo' : '#contacto'}>Ver más</a>
+								<a href={area.featured ? withBase('derecho-laboral-maritimo') : '#contacto'}>Ver más</a>
 							</div>
 						</div>
 					</article>

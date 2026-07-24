@@ -6,6 +6,7 @@ import '@fontsource/dm-sans/700.css';
 import '@fontsource/playfair-display/600.css';
 import '@fontsource/playfair-display/700.css';
 import '../styles/global.css';
+import { withBase } from '../utils/paths';
 
 interface Props {
 	title: string;
@@ -22,8 +23,8 @@ const { title, description } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#fffaf7" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
+		<link rel="icon" href={withBase('favicon.ico')} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
