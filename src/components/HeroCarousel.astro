@@ -1,0 +1,93 @@
+<section class="hero" id="inicio" aria-label="Presentación de Temis Legal" data-carousel>
+	<article class="hero-slide is-active" aria-hidden="false">
+		<img class="hero-image lawyer-image" src="/images/abogada-temis.jpg" alt="" fetchpriority="high" />
+		<div class="hero-overlay"></div>
+		<div class="hero-content">
+			<span class="eyebrow">Consultora jurídica en línea</span>
+			<h1>Soluciones legales claras, humanas y a tu medida.</h1>
+			<p>Asesoramiento, gestión y representación legal en todo el país, con atención personalizada, confidencialidad y seguimiento permanente.</p>
+			<div class="hero-actions">
+				<a class="button button-primary" href="https://wa.me/5491155988495?text=Hola%20Temis%20Legal,%20quisiera%20realizar%20una%20consulta" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+				<a class="button button-ghost" href="#areas">Ver áreas de práctica</a>
+			</div>
+			<div class="trust-row">
+				<span>Atención en todo el país</span>
+				<span>Honorarios transparentes</span>
+				<span>Respuesta rápida</span>
+			</div>
+		</div>
+	</article>
+
+	<article class="hero-slide" aria-hidden="true">
+		<img class="hero-image maritime-image" src="/images/derecho-laboral-maritimo.jpg" alt="" />
+		<div class="hero-overlay"></div>
+		<div class="hero-content">
+			<span class="eyebrow">Área destacada</span>
+			<h1>Derecho Laboral Marítimo</h1>
+			<p>Experiencia en el acompañamiento de trabajadores marítimos, portuarios y pesqueros. Analizamos cada situación y diseñamos una estrategia legal clara.</p>
+			<div class="hero-actions">
+				<a class="button button-primary" href="/derecho-laboral-maritimo">Conocer el área</a>
+				<a class="button button-ghost" href="https://wa.me/5491155988495?text=Hola%20Temis%20Legal,%20necesito%20asesoramiento%20en%20Derecho%20Laboral%20Mar%C3%ADtimo" target="_blank" rel="noopener">Realizar una consulta</a>
+			</div>
+		</div>
+	</article>
+
+	<div class="carousel-controls" aria-label="Controles de la portada">
+		<button class="carousel-arrow" type="button" aria-label="Mostrar portada anterior" data-prev>←</button>
+		<div class="carousel-dots">
+			<button class="carousel-dot is-active" type="button" data-index="0" aria-label="Mostrar primera portada" aria-current="true"></button>
+			<button class="carousel-dot" type="button" data-index="1" aria-label="Mostrar segunda portada" aria-current="false"></button>
+		</div>
+		<button class="carousel-arrow" type="button" aria-label="Mostrar portada siguiente" data-next>→</button>
+	</div>
+</section>
+
+<script>
+	const carousel = document.querySelector<HTMLElement>('[data-carousel]');
+	const slides = [...document.querySelectorAll<HTMLElement>('.hero-slide')];
+	const dots = [...document.querySelectorAll<HTMLButtonElement>('.carousel-dot')];
+	const prev = document.querySelector<HTMLButtonElement>('[data-prev]');
+	const next = document.querySelector<HTMLButtonElement>('[data-next]');
+	let current = 0;
+	let timer = 0;
+
+	const showSlide = (index: number) => {
+		if (index === current || slides.length < 2) return;
+		const outgoing = slides[current];
+		const incoming = slides[index];
+		outgoing.classList.remove('is-active');
+		outgoing.classList.add('is-leaving');
+		outgoing.setAttribute('aria-hidden', 'true');
+		incoming.classList.add('is-active');
+		incoming.setAttribute('aria-hidden', 'false');
+		dots.forEach((dot, dotIndex) => {
+			const active = dotIndex === index;
+			dot.classList.toggle('is-active', active);
+			dot.setAttribute('aria-current', String(active));
+		});
+		window.setTimeout(() => outgoing.classList.remove('is-leaving'), 900);
+		current = index;
+	};
+
+	const restart = () => {
+		window.clearInterval(timer);
+		timer = window.setInterval(() => showSlide((current + 1) % slides.length), 4000);
+	};
+
+	prev?.addEventListener('click', () => {
+		showSlide((current - 1 + slides.length) % slides.length);
+		restart();
+	});
+	next?.addEventListener('click', () => {
+		showSlide((current + 1) % slides.length);
+		restart();
+	});
+	dots.forEach((dot, index) => dot.addEventListener('click', () => {
+		showSlide(index);
+		restart();
+	}));
+	carousel?.addEventListener('mouseenter', () => window.clearInterval(timer));
+	carousel?.addEventListener('mouseleave', restart);
+	document.addEventListener('visibilitychange', () => document.hidden ? window.clearInterval(timer) : restart());
+	restart();
+</script>

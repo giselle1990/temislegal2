@@ -1,0 +1,12 @@
+<footer class="site-footer">
+	<div>
+		<strong>Temis Legal</strong>
+		<span>Soluciones jurídicas integrales, estés donde estés.</span>
+	</div>
+	<small>© <span data-year></span> Temis Legal. Todos los derechos reservados.</small>
+</footer>
+
+<script>
+	const year = document.querySelector<HTMLElement>('[data-year]');
+	if (year) year.textContent = String(new Date().getFullYear());
+</script>
