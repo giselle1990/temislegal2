@@ -1,0 +1,54 @@
+---
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import WhatsAppMenu from './WhatsAppMenu.astro';
+import Layout from '../layouts/Layout.astro';
+import type { LegalArea } from '../data/areas';
+import { withBase } from '../utils/paths';
+
+interface Props {
+	area: LegalArea;
+}
+
+const { area } = Astro.props;
+const whatsappUrl = `https://wa.me/5491155988495?text=${encodeURIComponent(`Hola Temis Legal, quisiera realizar una consulta sobre ${area.title}`)}`;
+---
+
+<Layout title={`${area.title} | Temis Legal`} description={area.pageDescription}>
+	<Header detail />
+	<main>
+		<section class="detail-hero">
+			<img src={withBase(area.image)} alt={area.imageAlt} />
+			<div class="detail-overlay"></div>
+			<div class="detail-hero-content">
+				<span class="eyebrow">Área de práctica</span>
+				<h1>{area.title}</h1>
+				<p>{area.shortDescription}</p>
+				<a class="button button-primary" href={whatsappUrl} target="_blank" rel="noopener">Consultar por WhatsApp</a>
+			</div>
+		</section>
+
+		<section class="section detail-content">
+			<div class="detail-copy">
+				<span class="eyebrow">Cómo podemos ayudarte</span>
+				<h2>{area.heading}</h2>
+				{area.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+			</div>
+			<aside class="detail-list">
+				<h3>Temas en los que intervenimos</h3>
+				<ul>
+					{area.topics.map((topic) => <li>{topic}</li>)}
+				</ul>
+			</aside>
+		</section>
+
+		<section class="section detail-cta">
+			<span class="eyebrow">Consulta confidencial</span>
+			<h2>Contanos tu situación</h2>
+			<p>Evaluaremos tu caso y te explicaremos los próximos pasos con un lenguaje claro.</p>
+			<a class="button contact-button" href={whatsappUrl} target="_blank" rel="noopener">Hablar con Temis Legal</a>
+		</section>
+	</main>
+	<WhatsAppMenu />
+	<Footer />
+</Layout>

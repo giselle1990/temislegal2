@@ -1,0 +1,19 @@
+---
+import LegalAreaPage from '../../components/LegalAreaPage.astro';
+import { legalAreas, type LegalArea } from '../../data/areas';
+
+export function getStaticPaths() {
+	return legalAreas.map((area) => ({
+		params: { slug: area.slug },
+		props: { area },
+	}));
+}
+
+interface Props {
+	area: LegalArea;
+}
+
+const { area } = Astro.props;
+---
+
+<LegalAreaPage area={area} />

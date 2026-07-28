@@ -2,7 +2,9 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import HeroCarousel from '../components/HeroCarousel.astro';
+import WhatsAppMenu from '../components/WhatsAppMenu.astro';
 import Layout from '../layouts/Layout.astro';
+import { legalAreas } from '../data/areas';
 import { withBase } from '../utils/paths';
 
 const services = [
@@ -10,18 +12,6 @@ const services = [
 	{ icon: '✎', title: 'Escritos y contratos', text: 'Redacción, revisión y adecuación de documentos legales con lenguaje claro y preciso.' },
 	{ icon: '◆', title: 'Mediaciones y negociaciones', text: 'Intervención estratégica para facilitar acuerdos y proteger tus intereses.' },
 	{ icon: '⌂', title: 'Patrocinio y representación', text: 'Acompañamiento profesional en instancias administrativas y judiciales.' },
-];
-
-const areas = [
-	{ icon: '⚖', title: 'Derecho Civil', text: 'Contratos, daños, obligaciones y conflictos patrimoniales.' },
-	{ icon: '♟', title: 'Derecho de Familia', text: 'Divorcios, alimentos, cuidado personal y acuerdos familiares.' },
-	{ icon: '§', title: 'Derecho Penal', text: 'Asistencia, defensa y acompañamiento durante todo el proceso.' },
-	{ icon: '▰', title: 'Derecho Laboral', text: 'Despidos, reclamos, accidentes y relaciones de trabajo.' },
-	{ icon: '◇', title: 'Derecho Comercial', text: 'Asesoramiento para empresas, contratos y conflictos societarios.' },
-	{ icon: '▥', title: 'Derecho Administrativo', text: 'Trámites, reclamos y recursos ante organismos públicos.' },
-	{ icon: '⚓', title: 'Derecho Laboral Marítimo', text: 'Protección y asesoramiento para trabajadores vinculados a la actividad marítima.', featured: true },
-	{ icon: '◉', title: 'Derecho del Consumidor', text: 'Reclamos por productos, servicios, garantías y trato indigno.' },
-	{ icon: '▱', title: 'Sucesiones', text: 'Planificación y acompañamiento integral del proceso sucesorio.' },
 ];
 
 ---
@@ -72,7 +62,7 @@ const areas = [
 				<h2>Soluciones jurídicas para cada necesidad</h2>
 			</div>
 			<div class="areas-grid">
-				{areas.map((area) => (
+				{legalAreas.map((area) => (
 					<article class:list={['area-card', 'reveal', { featured: area.featured }]} tabindex="0">
 						<div class="area-card-inner">
 							<div class="area-face area-front">
@@ -82,8 +72,8 @@ const areas = [
 							</div>
 							<div class="area-face area-back">
 								<h3>{area.title}</h3>
-								<p>{area.text}</p>
-								<a href={area.featured ? withBase('derecho-laboral-maritimo') : '#contacto'}>Ver más</a>
+								<p>{area.shortDescription}</p>
+								<a href={withBase(`areas/${area.slug}`)}>Ver más</a>
 							</div>
 						</div>
 					</article>
@@ -97,7 +87,8 @@ const areas = [
 				<h2>¿Listo para analizar tu caso?</h2>
 				<p>Contactanos para coordinar una consulta confidencial.</p>
 				<ul>
-					<li><strong>Teléfono:</strong> +54 9 11 5598-8495</li>
+					<li><strong>WhatsApp Temis Legal:</strong> +54 9 11 5598-8495</li>
+					<li><strong>Gloria Isabel Biodre:</strong> +54 9 223 312-2883</li>
 					<li><strong>Email:</strong> temislegal85@gmail.com</li>
 					<li><strong>Web:</strong> www.temisestudio.com.ar</li>
 					<li><strong>Instagram:</strong> @temis.legal</li>
@@ -107,10 +98,7 @@ const areas = [
 		</section>
 	</main>
 
-	<a class="whatsapp-float" href="https://wa.me/5491155988495?text=Hola%20Temis%20Legal,%20quisiera%20realizar%20una%20consulta" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-		<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.03 3C8.85 3 3 8.7 3 15.72c0 2.47.72 4.88 2.08 6.94L3 29l6.58-2.04a13.2 13.2 0 0 0 6.44 1.66h.01C23.21 28.62 29 22.92 29 15.9 29 8.72 23.2 3 16.03 3Zm7.7 18.13c-.33.93-1.95 1.79-2.7 1.9-.69.1-1.56.14-2.52-.16-.58-.18-1.32-.43-2.28-.84-4.01-1.7-6.62-5.66-6.82-5.92-.2-.26-1.63-2.16-1.63-4.12 0-1.95 1.03-2.91 1.39-3.31.36-.4.79-.5 1.06-.5.26 0 .53 0 .76.01.24.01.57-.09.9.68.33.78 1.12 2.7 1.22 2.9.1.2.16.43.03.69-.13.26-.2.43-.4.66-.2.23-.42.51-.6.68-.2.2-.41.42-.18.82.23.4 1.02 1.68 2.19 2.72 1.5 1.34 2.77 1.76 3.17 1.96.4.2.63.17.86-.1.23-.26.99-1.15 1.25-1.55.26-.4.53-.33.89-.2.36.13 2.28 1.08 2.67 1.27.4.2.66.3.76.46.1.17.1.96-.23 1.89Z"/></svg>
-		<span>WhatsApp</span>
-	</a>
+	<WhatsAppMenu />
 	<Footer />
 </Layout>
 
