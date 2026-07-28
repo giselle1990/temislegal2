@@ -20,8 +20,8 @@ export const legalAreas: LegalArea[] = [
 		shortDescription: 'Asesoramiento en relaciones de trabajo, reclamos, despidos y accidentes laborales.',
 		pageDescription: 'Asesoramiento jurídico en Derecho Laboral para analizar conflictos y proteger los derechos de cada parte.',
 		heading: 'Soluciones claras frente a los conflictos laborales',
-		image: 'images/escritorio-juridico.jpg',
-		imageAlt: 'Escritorio de trabajo jurídico con computadora, libros y la figura de la Justicia',
+		image: 'images/biblioteca-libro-abierto.jpg',
+		imageAlt: 'Biblioteca jurídica con tomos históricos y un libro abierto',
 		paragraphs: [
 			'Las relaciones laborales pueden generar dudas y conflictos que requieren una evaluación cuidadosa. Analizamos cada situación de manera individual para determinar qué derechos están comprometidos y cuáles son las alternativas más convenientes.',
 			'Brindamos acompañamiento en reclamos salariales, registración laboral, despidos, indemnizaciones, accidentes y enfermedades vinculadas con el trabajo. Nuestro objetivo es ordenar la información y diseñar una estrategia jurídica comprensible y realista.',
@@ -110,8 +110,8 @@ export const legalAreas: LegalArea[] = [
 		shortDescription: 'Asesoramiento societario, cambiario, bursátil y en procesos de crisis empresarial.',
 		pageDescription: 'Asesoramiento comercial en sociedades, derecho cambiario, concursos preventivos y quiebras.',
 		heading: 'Respaldo jurídico para decisiones empresariales complejas',
-		image: 'images/biblioteca-panoramica.jpg',
-		imageAlt: 'Vista panorámica de una biblioteca jurídica con colecciones de tomos históricos',
+		image: 'images/biblioteca-justicia.jpg',
+		imageAlt: 'Biblioteca jurídica con tomos históricos y una figura de la Justicia',
 		paragraphs: [
 			'Brindamos asesoramiento a sociedades y emprendimientos en las decisiones jurídicas que acompañan su actividad. El objetivo es ordenar relaciones internas, documentar acuerdos y prevenir conflictos que puedan afectar la continuidad del negocio.',
 			'La asistencia también comprende cuestiones de derecho cambiario y bursátil, con análisis de los instrumentos y obligaciones involucrados en cada operación. Trabajamos con una mirada estratégica, conectando la situación legal con la realidad económica de la empresa.',
@@ -133,8 +133,8 @@ export const legalAreas: LegalArea[] = [
 		shortDescription: 'Asistencia en la venta y transferencia formal de establecimientos comerciales.',
 		pageDescription: 'Asesoramiento para la venta y transferencia de fondos de comercio y la publicación de edictos.',
 		heading: 'Transferencias comerciales ordenadas y seguras',
-		image: 'images/justicia-filosofia.jpg',
-		imageAlt: 'Figura de la Justicia junto a un libro de filosofía del derecho',
+		image: 'images/biblioteca-libro-abierto.jpg',
+		imageAlt: 'Biblioteca jurídica con tomos históricos y un libro abierto',
 		paragraphs: [
 			'La venta de un fondo de comercio implica transferir un conjunto organizado de bienes, derechos y elementos vinculados con una actividad. Por eso, la operación necesita una revisión previa que permita definir con claridad qué se transmite y bajo qué condiciones.',
 			'Acompañamos la preparación de la transferencia, la documentación del acuerdo y el cumplimiento de las formalidades aplicables. Una gestión ordenada ayuda a proteger tanto a quien vende como a quien adquiere el establecimiento.',
